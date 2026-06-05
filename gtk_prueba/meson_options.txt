@@ -1,0 +1,15 @@
+# meson_options.txt
+# Controla el nivel de optimización vectorial SIMD para el hot path.
+#
+# Uso:
+#   meson setup build -Dvector_level=v4
+#   meson setup build -Dvector_level=v3
+#   meson setup build -Dvector_level=base
+
+option(
+  'vector_level',
+  type    : 'combo',
+  choices : ['base', 'v3', 'v4'],
+  value   : 'base',
+  description: 'Nivel de vectorización SIMD: base=-O2, v3=AVX2/FMA, v4=AVX-512',
+)
